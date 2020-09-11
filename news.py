@@ -10,10 +10,18 @@ soup = BeautifulSoup(r.text, 'html.parser')
 # with open('headline.html', 'w', encoding="utf8")as f:
 #     f.write(soup.prettify())
    
-lst = soup.find('ul', class_="hdline_article_list").find_all('li')
+headline = soup.find('ul', class_="hdline_article_list").find_all('li')
 print('[헤드라인 뉴스]')
-for index, item in enumerate(lst):
+for index, item in enumerate(headline):
     title = item.find('a').text.strip()
     link = item.find('a').get('href')
     print(f'{index+1}.', title)
     print(f'(링크 : https://news.naver.com{link})')
+
+it = soup.find('div', id="section_it").find('ul', class_="mlist2").find_all('li')
+print('[IT 뉴스]')
+for index, item in enumerate(it):
+    title = item.find('a').text.strip()
+    link = item.find('a').get('href')
+    print(f'{index+1}.',title)
+    print(f'(링크: {link})')
