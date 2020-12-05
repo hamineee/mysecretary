@@ -16,13 +16,12 @@ today_w = data.find('span', class_="todaytemp").text
 min_tem = data.find('span', class_="min").find('span', class_="num").text
 max_tem = data.find('span', class_="max").find('span', class_="num").text
 data_rain = soup.find('li', class_="date_info today")
-a = data_rain.find('span', class_="rain_rate wet")
-rain_am = data_rain.find('span', class_="rain_rate").find('span', class_='num').text
+rain_am = data_rain.find('span', class_="rain_rate wet").find('span', class_='num').text
 rain_pm = data_rain.find('span', class_="rain_rate").find('span', class_='num').text
 dust = soup.find('dl', class_="indicator").find_all('dd')[0].text
 super_dust = soup.find('dl', class_="indicator").find_all('dd')[1].text
 
-print('MY SECRETARY')
+
 print('[오늘의 날씨]')
 print(cast)
 print(f'현재{today_w} (최저 {min_tem}/최고{max_tem}')
